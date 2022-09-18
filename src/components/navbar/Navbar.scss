@@ -1,0 +1,86 @@
+@import '../../Const.scss';
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+nav {
+  @include flex-ai-center;
+  justify-content: space-around;
+  height: 50px;
+  width: 100%;
+  background: $bacground-color;
+  position: fixed;
+  z-index: 1;
+}
+
+.burger-btn {
+  width: 20px;
+  height: 20px;
+  margin-left: 20px;
+  position: relative;
+  cursor: pointer;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 30px;
+    background: black;
+    height: 2px;
+  }
+
+  .burger_line_plus {
+    position: absolute;
+    top: 9px;
+    width: 30px;
+    background: black;
+    height: 2px;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 30px;
+    background: black;
+    height: 2px;
+  }
+}
+
+// active button burger this is KOLHOZ
+.burger-btn__active {
+  width: 20px;
+  height: 20px;
+  margin-left: 20px;
+  position: relative;
+  cursor: pointer;
+
+  &:before {
+    display: none;
+  }
+
+  .burger_line_plus {
+    position: absolute;
+    top: 9px;
+    width: 30px;
+    background: black;
+    height: 2px;
+    transform: rotate(45deg);
+  }
+
+  .burger_line_minus {
+    position: absolute;
+    top: 9px;
+    width: 30px;
+    background: black;
+    height: 2px;
+    transform: rotate(-45deg);
+  }
+
+  &:after {
+    display: none;
+  }
+}

@@ -1,0 +1,27 @@
+@import '../../Const.scss';
+
+.wrapper {
+  @include wrapper;
+}
+
+.main-menu {
+  display: flex;
+  // margin: 0 150px 0 150px;
+}
+
+.menu__ul {
+  display: flex;
+  width: 70vw;
+  justify-content: space-evenly;
+  .menu__li {
+    display: flex;
+    align-items: center;
+    .menu__href {
+      color: #000;
+      font-size: 25px;
+      text-decoration: none;
+      text-transform: uppercase;
+      list-style-type: none;
+    }
+  }
+}

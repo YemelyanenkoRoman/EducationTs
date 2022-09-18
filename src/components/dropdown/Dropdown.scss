@@ -1,0 +1,36 @@
+@import '../../Const.scss';
+
+.dropdown__off {
+  display: none;
+}
+
+.dropdown__on {
+  @include flex-column-ai-center();
+}
+
+.dropdown {
+  color: #000;
+  font-size: 25px;
+  text-decoration: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  @include flex-column-ai-center();
+}
+
+.dropdown__position {
+  position: absolute;
+  margin-top: 40px;
+  background: rgba(117, 179, 125, 0.5);
+}
+
+.dropdown__li {
+  list-style-type: none;
+}
+
+// work in burger-menu
+.dropdown__href {
+  font-size: 25px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #000;
+}
