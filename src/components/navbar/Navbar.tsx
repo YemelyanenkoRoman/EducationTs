@@ -1,13 +1,8 @@
 import React, { FC, useState, useEffect } from 'react';
-// import Burger from '../burger/Burger';
 import Menu from '../menu/Menu';
 import navList from './navList';
 import './Navbar.scss';
-// import { InavList } from '../../types/types';
-
-// interface NavbarProps {
-// items: InavList[];
-// }
+import Burger from '../burger/Burger';
 
 const Navbar: FC = () => {
   const [menuActive, setMenuActive] = useState(false);
@@ -42,7 +37,7 @@ const Navbar: FC = () => {
         )}
       </nav>
 
-      {/* {width < 800 ? <Burger active={menuActive} setActive={setMenuActive} items={navList} /> : <></>} */}
+      {width < 800 ? <Burger active={menuActive} setActive={setMenuActive} items={navList} /> : <></>}
     </div>
   );
 };

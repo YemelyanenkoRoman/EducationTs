@@ -1,10 +1,10 @@
-export interface IfurtherLinks {
+export interface FurtherLink {
   value: string;
   href: string;
 }
 
-export interface InavList {
+export interface NavLink {
   value: string;
   href?: string;
-  links?: IfurtherLinks[];
+  links?: FurtherLink[];
 }

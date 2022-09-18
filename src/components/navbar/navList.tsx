@@ -1,6 +1,6 @@
-import { InavList } from '../../types/types';
+import { NavLink } from '../../types/types';
 
-const navList: InavList[] = [
+const navList: NavLink[] = [
   { value: 'Главная', href: '/' },
   { value: 'Запись', href: '/appointment' },
   { value: 'Обо мне', href: '/a' },

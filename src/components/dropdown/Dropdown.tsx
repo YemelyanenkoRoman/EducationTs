@@ -1,10 +1,10 @@
 import React, { FC, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { IfurtherLinks } from '../../types/types';
+import { FurtherLink } from '../../types/types';
 import './Dropdown.scss';
 
 interface DropdovnProps {
-  links: IfurtherLinks[];
+  links: FurtherLink[];
   name: string;
 }
 

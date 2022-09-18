@@ -1,19 +1,19 @@
 import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
-// import Logo from '../logo/Logo';
+import Logo from '../logo/Logo';
 import Dropdown from '../dropdown/Dropdown';
 import './Menu.scss';
-import { InavList } from '../../types/types';
+import { NavLink } from '../../types/types';
 
 interface NavListProps {
-  items: InavList[];
+  items: NavLink[];
 }
 
 const Menu: FC<NavListProps> = ({ items }) => {
   return (
     // <div className="wrapper">
     <div className="main-menu">
-      {/* <Logo /> */}
+      <Logo />
       <ul className="menu__ul">
         {items.map((item) => (
           <li className={'menu__list menu__li'} key={item.value}>
