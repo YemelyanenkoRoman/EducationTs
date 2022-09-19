@@ -5,6 +5,7 @@ import Main from './pages/main/Main';
 
 import './App.scss';
 import Manicure from './pages/manicure/Manicure';
+import Appointment from './pages/appointment/Appointment';
 
 const App = () => {
   return (
@@ -14,7 +15,7 @@ const App = () => {
         <div style={{ paddingTop: '0px' }}>
           <Routes>
             <Route path="/" element={<Main />} />
-            {/* <Route path="/appointment" element={<Appointment />} /> */}
+            <Route path="/appointment" element={<Appointment />} />
             <Route path="/manicure" element={<Manicure manicureData={[]} />} />
           </Routes>
         </div>
