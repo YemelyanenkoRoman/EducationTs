@@ -12,13 +12,11 @@ const App = () => {
     <>
       <Router>
         <Navbar />
-        <div style={{ paddingTop: '0px' }}>
-          <Routes>
-            <Route path="/" element={<Main />} />
-            <Route path="/appointment" element={<Appointment />} />
-            <Route path="/manicure" element={<Manicure manicureData={[]} />} />
-          </Routes>
-        </div>
+        <Routes>
+          <Route path="/" element={<Main />} />
+          <Route path="/appointment" element={<Appointment />} />
+          <Route path="/manicure" element={<Manicure />} />
+        </Routes>
       </Router>
     </>
   );

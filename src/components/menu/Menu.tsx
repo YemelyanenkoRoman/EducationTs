@@ -11,7 +11,6 @@ interface NavListProps {
 
 const Menu: FC<NavListProps> = ({ items }) => {
   return (
-    // <div className="wrapper">
     <div className="main-menu">
       <Logo />
       <ul className="menu__ul">
@@ -30,7 +29,6 @@ const Menu: FC<NavListProps> = ({ items }) => {
         ))}
       </ul>
     </div>
-    // </div>
   );
 };
 

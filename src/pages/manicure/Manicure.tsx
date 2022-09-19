@@ -1,14 +1,9 @@
 import React, { FC } from 'react';
 import ServicesCard from '../../components/servicesCard/ServicesCard';
-import { CardData } from '../../types/types';
 import manicureData from './manicureData';
 import './Manicure.scss';
 
-interface ManicureProps {
-  manicureData: CardData[];
-}
-
-const Manicure: FC<ManicureProps> = () => {
+const Manicure: FC = () => {
   return (
     <div className="manicure">
       <div className="wrapper">

@@ -8,7 +8,7 @@ interface ServicesCardProps {
 }
 
 const ServicesCard: FC<ServicesCardProps> = ({ cardData }) => {
-  const [text, setText] = useState<boolean>(true);
+  const [isText, setIsText] = useState<boolean>(true);
 
   return (
     <div className="servicesCard">
@@ -21,13 +21,13 @@ const ServicesCard: FC<ServicesCardProps> = ({ cardData }) => {
         </div>
         <div className="servicesCard__contentBox">
           <p className="servicesCard__visible-text">{cardData.visibleText}</p>
-          <p className={text ? 'none' : 'text'}>{cardData.hiddenText}</p>
+          <p className={isText ? 'none' : 'text'}>{cardData.hiddenText}</p>
           <span className="servicesCard__buttonsSB">
             <button className="buttonSB">Записаться</button>
-            <button className={text ? 'buttonSB' : 'none'} onClick={() => setText(false)}>
+            <button className={isText ? 'buttonSB' : 'none'} onClick={() => setIsText(false)}>
               Читать далее
             </button>
-            <button className={text ? 'none' : 'buttonSB'} onClick={() => setText(true)}>
+            <button className={isText ? 'none' : 'buttonSB'} onClick={() => setIsText(true)}>
               Закрыть
             </button>
           </span>
