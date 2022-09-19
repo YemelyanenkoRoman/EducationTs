@@ -1,0 +1,12 @@
+@import '../../Const.scss';
+
+.manicure {
+  @include flex-column-ai-center();
+  padding-top: 50px;
+  background: url('../../../public/imgs/manicure-background.png') no-repeat;
+  @include backround-img-style();
+}
+
+.wrapper {
+  @include wrapper();
+}

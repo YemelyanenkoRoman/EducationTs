@@ -1,11 +1,7 @@
 import React, { FC, useState, useEffect } from 'react';
-import './Slider.scss';
+import { DataSliderItem } from '../../types/types';
 import BtnSlider from './BtnSlider';
-
-export interface DataSliderItem {
-  id: number | string;
-  name: string;
-}
+import './Slider.scss';
 
 interface SliderProps {
   autoChange: boolean;

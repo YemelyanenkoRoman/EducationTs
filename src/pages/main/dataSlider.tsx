@@ -1,4 +1,4 @@
-import { DataSliderItem } from '../../components/slider/Slider';
+import { DataSliderItem } from '../../types/types';
 
 const dataSlider: DataSliderItem[] = [
   {

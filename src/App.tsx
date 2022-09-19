@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Main from './pages/main/Main';
 
 import './App.scss';
+import Manicure from './pages/manicure/Manicure';
 
 const App = () => {
   return (
@@ -13,8 +14,8 @@ const App = () => {
         <div style={{ paddingTop: '0px' }}>
           <Routes>
             <Route path="/" element={<Main />} />
-            {/* <Route path="/appointment" element={<Appointment />} />
-            <Route path="/manicure" element={<Manicure />} /> */}
+            {/* <Route path="/appointment" element={<Appointment />} /> */}
+            <Route path="/manicure" element={<Manicure manicureData={[]} />} />
           </Routes>
         </div>
       </Router>
