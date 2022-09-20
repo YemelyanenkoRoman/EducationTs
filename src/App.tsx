@@ -6,6 +6,7 @@ import Main from './pages/main/Main';
 import './App.scss';
 import Manicure from './pages/manicure/Manicure';
 import Appointment from './pages/appointment/Appointment';
+import Footer from './components/footer/Footer';
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
           <Route path="/appointment" element={<Appointment />} />
           <Route path="/manicure" element={<Manicure />} />
         </Routes>
+        <Footer />
       </Router>
     </>
   );
