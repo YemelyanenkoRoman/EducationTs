@@ -1,4 +1,5 @@
 import React, { FC, useState, useEffect } from 'react';
+import dataSlider from '../../pages/main/dataSlider';
 import { DataSliderItem } from '../../types/types';
 import BtnSlider from './BtnSlider';
 import './Slider.scss';
@@ -47,7 +48,7 @@ const Slider: FC<SliderProps> = ({ autoChange, dataSlider }) => {
       {dataSlider.map((item, index) => {
         return (
           <div key={item.id} className={slideIndex === index + 1 ? 'slide active-anim' : 'slide'}>
-            <img src={process.env.PUBLIC_URL + `/imgs/${item.name}.jpg`} />
+            <img src={item.url} />
           </div>
         );
       })}
@@ -55,7 +56,7 @@ const Slider: FC<SliderProps> = ({ autoChange, dataSlider }) => {
       <BtnSlider moveSlide={prevSlide} direction={'prev'} />
 
       <div className="container-dots">
-        {Array.from({ length: 5 }).map((item, index) => (
+        {Array.from({ length: dataSlider.length }).map((item, index) => (
           <div
             key={index}
             onClick={() => moveDot(index + 1)}

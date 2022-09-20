@@ -5,7 +5,7 @@ import './Navbar.scss';
 import Burger from '../burger/Burger';
 
 const Navbar: FC = () => {
-  const [menuActive, setMenuActive] = useState(false);
+  const [menuActive, setMenuActive] = useState<boolean>(false);
   const [width, setWidth] = useState(window.innerWidth);
 
   useEffect(() => {

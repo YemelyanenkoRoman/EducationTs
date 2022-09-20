@@ -3,23 +3,23 @@ import { DataSliderItem } from '../../types/types';
 const dataSlider: DataSliderItem[] = [
   {
     id: 'img1',
-    name: 'main-img-1',
+    url: process.env.PUBLIC_URL + '/imgs/main-img-1.jpg',
   },
   {
     id: 'img2',
-    name: 'main-img-2',
+    url: process.env.PUBLIC_URL + '/imgs/main-img-2.jpg',
   },
   {
     id: 'img3',
-    name: 'main-img-3',
+    url: process.env.PUBLIC_URL + '/imgs/main-img-3.jpg',
   },
   {
     id: 'img4',
-    name: 'main-img-4',
+    url: process.env.PUBLIC_URL + '/imgs/main-img-4.jpg',
   },
   {
     id: 'img5',
-    name: 'main-img-5',
+    url: process.env.PUBLIC_URL + '/imgs/main-img-5.jpg',
   },
 ];
 

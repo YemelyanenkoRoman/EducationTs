@@ -14,7 +14,7 @@ export interface NavLink {
 
 export interface DataSliderItem {
   id: number | string;
-  name: string;
+  url: string;
 }
 
 // manicureData

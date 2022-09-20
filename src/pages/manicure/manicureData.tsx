@@ -10,23 +10,23 @@ const manicureData: CardData[] = [
     imgDataPath: [
       {
         id: 123,
-        name: 'manicure-first-slider-img-1',
+        url: process.env.PUBLIC_URL + '/imgs/manicure-first-slider-img-1.jpg',
       },
       {
         id: 245,
-        name: 'manicure-first-slider-img-2',
+        url: process.env.PUBLIC_URL + '/imgs/manicure-first-slider-img-2.jpg',
       },
       {
         id: 2566,
-        name: 'manicure-first-slider-img-3',
+        url: process.env.PUBLIC_URL + '/imgs/manicure-first-slider-img-3.jpg',
       },
       {
         id: 4667,
-        name: 'manicure-first-slider-img-4',
+        url: process.env.PUBLIC_URL + '/imgs/manicure-first-slider-img-4.jpg',
       },
       {
         id: 5666,
-        name: 'manicure-first-slider-img-5',
+        url: process.env.PUBLIC_URL + '/imgs/manicure-first-slider-img-5.jpg',
       },
     ],
   },
@@ -39,23 +39,23 @@ const manicureData: CardData[] = [
     imgDataPath: [
       {
         id: 123,
-        name: 'manicure-first-slider-img-1',
+        url: process.env.PUBLIC_URL + '/imgs/manicure-first-slider-img-1.jpg',
       },
       {
         id: 245,
-        name: 'manicure-first-slider-img-2',
+        url: process.env.PUBLIC_URL + '/imgs/manicure-first-slider-img-2.jpg',
       },
       {
         id: 2566,
-        name: 'manicure-first-slider-img-3',
+        url: process.env.PUBLIC_URL + '/imgs/manicure-first-slider-img-3.jpg',
       },
       {
         id: 4667,
-        name: 'manicure-first-slider-img-4',
+        url: process.env.PUBLIC_URL + '/imgs/manicure-first-slider-img-4.jpg',
       },
       {
         id: 5666,
-        name: 'manicure-first-slider-img-5',
+        url: process.env.PUBLIC_URL + '/imgs/manicure-first-slider-img-5.jpg',
       },
     ],
   },
@@ -68,23 +68,23 @@ const manicureData: CardData[] = [
     imgDataPath: [
       {
         id: 123,
-        name: 'manicure-first-slider-img-1',
+        url: process.env.PUBLIC_URL + '/imgs/manicure-first-slider-img-1.jpg',
       },
       {
         id: 245,
-        name: 'manicure-first-slider-img-2',
+        url: process.env.PUBLIC_URL + '/imgs/manicure-first-slider-img-2.jpg',
       },
       {
         id: 2566,
-        name: 'manicure-first-slider-img-3',
+        url: process.env.PUBLIC_URL + '/imgs/manicure-first-slider-img-3.jpg',
       },
       {
         id: 4667,
-        name: 'manicure-first-slider-img-4',
+        url: process.env.PUBLIC_URL + '/imgs/manicure-first-slider-img-4.jpg',
       },
       {
         id: 5666,
-        name: 'manicure-first-slider-img-5',
+        url: process.env.PUBLIC_URL + '/imgs/manicure-first-slider-img-5.jpg',
       },
     ],
   },
