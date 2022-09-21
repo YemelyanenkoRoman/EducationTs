@@ -2,59 +2,24 @@ import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
 import Dropdown from '../dropdown/Dropdown';
 import Logo from '../logo/Logo';
-
 import navList from '../navbar/navList';
-
-import mail from './icons/mail.png';
-import phone from './icons/phone.png';
-import address from './icons/address.png';
-import instagramm from './icons/instagramm.png';
-import facebook from './icons/facebook.png';
-import tiktok from './icons/tiktok.png';
-import vk from './icons/vk.png';
+import { dataSocNetworks, dataContacts } from './dataFooter';
 
 import './Footer.scss';
 
 const Footer: FC = () => {
-  const social: SocialProps[] = [
-    { id: 1, href: 'https://www.instagram.com/', src: instagramm },
-    {
-      id: 2,
-      href: 'https://ru-ru.facebook.com/',
-      src: facebook,
-    },
-    {
-      id: 3,
-      href: 'https://www.tiktok.com/',
-      src: tiktok,
-    },
-    {
-      id: 4,
-      href: 'https://www.vk.com/',
-      src: vk,
-    },
-  ];
-
-  interface SocialProps {
-    id: number | string;
-    href: string;
-    src: string;
-  }
-
   return (
     <div className="footer">
-      <div className="footer__title-main ">
-        <Logo />
-      </div>
+      <div className="footer__border"></div>
       <div className="footer__box">
         <div className="footer__menu">
-          <ul className="footer__ul">
+          <ul className="footer__menu-ul">
             {navList.map((item) => (
-              <li key={item.value} className="footer__li">
+              <li key={item.value} className="footer__menu-li">
                 {item.links ? (
                   <Dropdown links={item.links} name={item.value} />
                 ) : item.href ? (
-                  <Link to={item.href} className="footer__href">
+                  <Link to={item.href} className="footer__menu-href">
                     {item.value}
                   </Link>
                 ) : (
@@ -67,29 +32,26 @@ const Footer: FC = () => {
         <div className="footer__box-address">
           <div className="footer__title">Контактные данные</div>
 
-          <div className="cell">
-            <a className="footer__href" href="tel:+375291111111">
-              <img className="icons_address" src={phone} /> +375 (29) 111 11 11
-            </a>
-          </div>
-          <div className="mail">
-            <a className="footer__href" href="nails.olga@mail.ru">
-              <img className="icons_address" src={mail} /> nails.olga@mail.ru
-            </a>
-          </div>
-          <div className="address">
-            <img className="icons_address" src={address} />
-            <div>г.Гомель, проспект Ленина, дом №1, цокольный этаж</div>
-          </div>
+          <ul className="footer__contact-data">
+            {dataContacts.map((item) => (
+              <li key={item.id}>
+                <a className="footer__href" href={item.href}>
+                  <img className="footer__icons-address" src={item.url} />
+                  {item.text}
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
+
         <div className="footer__social-network">
           <div className="footer__title">Мы в социальных сетях</div>
 
           <ul className="social-network__images">
-            {social.map((item) => (
+            {dataSocNetworks.map((item) => (
               <li key={item.id}>
                 <a className="footer__href" target="_blank" href={item.href}>
-                  <img className="icons" src={item.src} />
+                  <img className="icons" src={item.url} />
                 </a>
               </li>
             ))}

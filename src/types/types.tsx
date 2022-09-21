@@ -25,3 +25,18 @@ export interface CardData {
   hiddenText: string;
   imgDataPath: DataSliderItem[];
 }
+
+// Footer socialNetworks
+
+export interface SocialNetworks {
+  id: number | string;
+  href: string;
+  url: string;
+}
+
+export interface DataContacts {
+  id: number | string;
+  href?: string;
+  url: string;
+  text?: string;
+}
