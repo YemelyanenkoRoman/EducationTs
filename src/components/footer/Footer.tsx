@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
 import Dropdown from '../dropdown/Dropdown';
+import Logo from '../logo/Logo';
 import navList from '../navbar/navList';
 import { dataSocNetworks, dataContacts } from './dataFooter';
 
@@ -28,6 +29,7 @@ const Footer: FC = () => {
             ))}
           </ul>
         </div>
+
         <div className="footer__address">
           <div className="footer__title">Контактные данные</div>
           <ul className="footer__address-ul">
@@ -43,6 +45,9 @@ const Footer: FC = () => {
         </div>
 
         <div className="footer__soc-net">
+          <div className="footer__logo">
+            <Logo />
+          </div>
           <div className="footer__title">Мы в социальных сетях</div>
           <ul className="footer__soc-net-images">
             {dataSocNetworks.map((item) => (
@@ -66,13 +71,11 @@ const Footer: FC = () => {
             ОГРНИП: 1111111111 <br />
             Расчётный счет: 4071111111111111
             <br />
-            Банк: Беларусбанк г.Гомель <br />
-            Корр/счёт: 30103010111111111 <br />
-            БИК: 04403060111 <br />
+            Расчётный счет: 4071111111111111
           </div>
         </div>
       </div>
-      <div className="footer__footer footer__title-main footer__title">&#169; Nails.Olga, 2022. Все права защищены</div>
+      <div className="footer__border footer__footer">&#169; Nails.Olga, 2022. Все права защищены</div>
     </div>
   );
 };

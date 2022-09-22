@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe&display=swap');
 
 $bacground-color: #75b37d;
+$let-sp: 3px;
 
 @mixin wrapper() {
   max-width: 1200px;

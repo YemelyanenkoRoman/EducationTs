@@ -2,7 +2,8 @@
 
 .footer {
   color: #000;
-  @include main-text();
+  @include little-text();
+  font-weight: 600;
 
   &__box {
     padding: 15px 0 15px 0;
@@ -20,7 +21,7 @@
   &__title {
     display: flex;
     justify-content: center;
-    letter-spacing: 3px;
+    letter-spacing: $let-sp;
     text-transform: uppercase;
   }
 
@@ -46,6 +47,9 @@
 
   &__address {
     max-width: 210px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
     &-ul {
       display: flex;
@@ -62,14 +66,20 @@
       max-width: 25px;
       max-height: 25px;
       margin: 5px;
+      margin-right: 20px;
     }
 
     &-li {
       display: flex;
+      margin-top: 5px;
     }
   }
 
   &__soc-net {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
     &-images {
       @include flex-ai-center();
       justify-content: center;
@@ -82,28 +92,22 @@
       margin: 5px;
     }
   }
+
+  &__logo {
+    margin-bottom: 20px;
+  }
+
+  &__footer {
+    @include flex-ai-center();
+    justify-content: center;
+    letter-spacing: $let-sp;
+  }
 }
 
-.cell {
+.entrepreneur {
   display: flex;
   flex-direction: column;
-}
-
-.address {
-  @include flex-ai-center;
-}
-
-.entrepreneur__data {
-  font-size: 20px;
-}
-
-.mail {
-  margin: 15px 0 15px 0;
-}
-
-.footer__footer {
-  @include flex-ai-center();
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .menu__href {
