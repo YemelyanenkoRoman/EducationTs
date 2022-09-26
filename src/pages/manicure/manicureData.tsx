@@ -1,6 +1,6 @@
-import { CardData } from '../../types/types';
+// import { CardData } from '../../types/types';
 
-const manicureData: CardData[] = [
+export const manicureData = [
   {
     title: 'Гигеинический маникюр',
     visibleText:
@@ -90,4 +90,4 @@ const manicureData: CardData[] = [
   },
 ];
 
-export default manicureData;
+// export default manicureData;
