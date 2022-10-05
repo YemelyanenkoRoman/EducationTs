@@ -1,13 +1,15 @@
 import React, { FC, useState } from 'react';
-import TimePicker from 'react-time-picker';
+import ReactTimePicker from 'react-time-picker';
 
-const Timepicker: FC = () => {
-  const [value, onChange] = useState<string>('08:00');
+interface DataTimePicker {
+  onChange: (time: string | null | Date) => void;
+  value: any;
+}
 
-  return (
-    <div>
-      <TimePicker onChange={(value) => onChange(value.toString())} value={value} />
-    </div>
-  );
+const TimePicker: FC<DataTimePicker> = (props: DataTimePicker) => {
+  // const [value, onChange] = useState<string>('08:00');
+  //  return <ReactTimePicker onChange={(value) => onChange(value.toString())} value={value} />
+  return <ReactTimePicker value={props.value} onChange={props.onChange} />;
 };
-export default Timepicker;
+
+export default TimePicker;

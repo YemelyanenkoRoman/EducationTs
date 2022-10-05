@@ -8,10 +8,6 @@ import Manicure from './pages/manicure/Manicure';
 import Appointment from './pages/appointment/Appointment';
 import Footer from './components/footer/Footer';
 
-import SelectBox, { IOption } from './components/selectBox/SelectBox';
-
-// import Datepicker from './components/datepicker/Datepicker';
-// import Timepicker from './components/timepicker/Timepicker';
 import Inputs from './components/inputs/Inputs';
 
 // const options: IOption[] = [
@@ -21,7 +17,12 @@ import Inputs from './components/inputs/Inputs';
 // ];
 
 const App = () => {
+  // деструкторизация массива
+  // useState возвращает массив
+  // Нулевым элементом массива является value , первым - ф-ция для  изменения состояния
   // const [value, setValue] = useState<Readonly<IOption[]>>([]);
+
+  // const TT = useState<Readonly<IOption[]>>([]);
 
   return (
     <>
@@ -34,17 +35,7 @@ const App = () => {
         </Routes>
         <Footer />
       </Router>
-      {/* <Datepicker></Datepicker>
-      <Timepicker /> */}
       <Inputs />
-      {/* <SelectBox
-        options={options}
-        onChange={(data) => {
-          setValue(data);
-          console.log(data);
-        }}
-        value={value}
-      /> */}
     </>
   );
 };

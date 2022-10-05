@@ -5,6 +5,7 @@ import SelectBox, { IOption } from '../selectBox/SelectBox';
 import Datepicker from '../datepicker/Datepicker';
 
 import './Inputs.scss';
+import CheckBox from '../checkbox/Checkbox';
 
 type FormValues = {
   firstName: string;
@@ -13,6 +14,7 @@ type FormValues = {
   email: string;
   options: IOption[];
   datePicker: Date;
+  checkBox: any;
 };
 
 const options: IOption[] = [
@@ -125,7 +127,15 @@ export default function Inputs() {
       <Controller
         control={control}
         name="datePicker"
-        render={({ field: { onChange, value } }) => <Datepicker onChange={onChange} date={value} />}
+        render={({ field: { onChange, value } }) => (
+          <Datepicker onChange={onChange} date={value} showTimeSelect={true} />
+        )}
+      />
+
+      <Controller
+        control={control}
+        name="checkBox"
+        render={({ field: { onChange, value } }) => <CheckBox onChange={onChange} checked={value} />}
       />
 
       <input className="button" type="submit" />
