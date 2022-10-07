@@ -1,12 +1,16 @@
 import React, { FC, useState, useEffect } from 'react';
 import Menu from '../menu/Menu';
 import navList from './navList';
-import './Navbar.scss';
 import Burger from '../burger/Burger';
+import ManualSwitch from '../switch/Switch';
+import './Navbar.scss';
 
 const Navbar: FC = () => {
   const [menuActive, setMenuActive] = useState<boolean>(false);
   const [width, setWidth] = useState(window.innerWidth);
+  const [chacked, setChacked] = useState(false);
+
+  console.log(chacked);
 
   useEffect(() => {
     const resizeHandler = () => {
@@ -35,8 +39,9 @@ const Navbar: FC = () => {
         ) : (
           <Menu items={navList} />
         )}
-      </nav>
 
+        <ManualSwitch checked={chacked} onChange={setChacked} />
+      </nav>
       {width < 800 ? <Burger active={menuActive} setActive={setMenuActive} items={navList} /> : <></>}
     </div>
   );

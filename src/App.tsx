@@ -2,13 +2,11 @@ import React, { useState } from 'react';
 import Navbar from './components/navbar/Navbar';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Main from './pages/main/Main';
-
-import './App.scss';
 import Manicure from './pages/manicure/Manicure';
 import Appointment from './pages/appointment/Appointment';
 import Footer from './components/footer/Footer';
-
 import Inputs from './components/inputs/Inputs';
+import './App.scss';
 
 // const options: IOption[] = [
 //   { value: 'chocolate', label: 'Chocolate' },
