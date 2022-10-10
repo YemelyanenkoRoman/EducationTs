@@ -10,7 +10,7 @@ interface DataPickerProps {
 }
 
 const DatePicker: FC<DataPickerProps> = ({ inline = true, ...rest }: DataPickerProps) => {
-  console.log(inline);
+  // console.log(inline);
   // const [startDate, setStartDate] = useState<Date>(new Date());
   // const onChange = (date: Date | null) => {
   //   date && setStartDate(date) = но в место стейтев используем пропс.

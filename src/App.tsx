@@ -5,7 +5,6 @@ import Main from './pages/main/Main';
 import Manicure from './pages/manicure/Manicure';
 import Appointment from './pages/appointment/Appointment';
 import Footer from './components/footer/Footer';
-import Inputs from './components/inputs/Inputs';
 import './App.scss';
 
 // const options: IOption[] = [
@@ -33,7 +32,6 @@ const App = () => {
         </Routes>
         <Footer />
       </Router>
-      <Inputs />
     </>
   );
 };

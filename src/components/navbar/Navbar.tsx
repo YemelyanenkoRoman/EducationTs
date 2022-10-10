@@ -10,7 +10,7 @@ const Navbar: FC = () => {
   const [width, setWidth] = useState(window.innerWidth);
   const [chacked, setChacked] = useState(false);
 
-  console.log(chacked);
+  // console.log(chacked);
 
   useEffect(() => {
     const resizeHandler = () => {

@@ -2,6 +2,8 @@ import React, { FC, useState } from 'react';
 import Select, { GroupBase } from 'react-select';
 import { Props } from 'react-select/dist/declarations/src/Select';
 
+import './selectBox.scss';
+
 export interface IOption {
   value: string;
   label: string;

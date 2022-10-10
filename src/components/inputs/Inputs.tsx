@@ -1,29 +1,44 @@
-import React, { useState } from 'react';
-// import * as React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm, useController, UseControllerProps, Controller } from 'react-hook-form';
 import SelectBox, { IOption } from '../selectBox/SelectBox';
 import Datepicker from '../datepicker/Datepicker';
+import CheckBox from '../checkbox/Checkbox';
+
+import { loadManicureData } from '../../store/slices/manicureSlice';
+import { useAppDispatch, useAppSelector } from '../../hooks/redux';
+import { loadPedicureData } from '../../store/slices/pedicureSlice';
 
 import './Inputs.scss';
-import CheckBox from '../checkbox/Checkbox';
 
 type FormValues = {
   firstName: string;
   surname: string;
   phoneNumber: string;
   email: string;
-  options: IOption[];
+  manicureOptions: IOption[];
+  pedicureOptions: IOption[];
   datePicker: Date;
   checkBox: any;
 };
 
-const options: IOption[] = [
-  { value: 'chocolate', label: 'Chocolate' },
-  { value: 'strawberry', label: 'Strawberry' },
-  { value: 'vanilla', label: 'Vanilla' },
-];
-
 export default function Inputs() {
+  const dispatch = useAppDispatch();
+  const manicureData = useAppSelector((state) => state.manicure.card);
+  const pedicureData = useAppSelector((state) => state.pedicure.card);
+
+  useEffect(() => {
+    dispatch(loadManicureData());
+    dispatch(loadPedicureData());
+  }, []);
+
+  const manicureOptions: IOption[] = manicureData.map((item) => {
+    return { value: item.title, label: item.title };
+  });
+
+  const pedicureOptions: IOption[] = pedicureData.map((item) => {
+    return { value: item.title, label: item.title };
+  });
+
   const { handleSubmit, control } = useForm<FormValues>({
     defaultValues: {
       firstName: '',
@@ -37,6 +52,22 @@ export default function Inputs() {
 
   return (
     <form className="form" onSubmit={handleSubmit(onSubmit)}>
+      <Controller
+        control={control}
+        name="manicureOptions"
+        render={({ field: { onChange, value } }) => (
+          <SelectBox value={value} onChange={onChange} options={manicureOptions} />
+        )}
+      />
+
+      <Controller
+        control={control}
+        name="pedicureOptions"
+        render={({ field: { onChange, value } }) => (
+          <SelectBox value={value} onChange={onChange} options={pedicureOptions} />
+        )}
+      />
+
       <label>
         {'Имя'}
         <Controller
@@ -120,12 +151,6 @@ export default function Inputs() {
 
       <Controller
         control={control}
-        name="options"
-        render={({ field: { onChange, value } }) => <SelectBox value={value} onChange={onChange} options={options} />}
-      />
-
-      <Controller
-        control={control}
         name="datePicker"
         render={({ field: { onChange, value } }) => (
           <Datepicker onChange={onChange} date={value} showTimeSelect={true} />
@@ -136,6 +161,9 @@ export default function Inputs() {
         control={control}
         name="checkBox"
         render={({ field: { onChange, value } }) => <CheckBox onChange={onChange} checked={value} />}
+        rules={{
+          required: true,
+        }}
       />
 
       <input className="button" type="submit" />

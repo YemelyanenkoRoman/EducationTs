@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { combineReducers } from 'redux';
 import manicureSlice from './slices/manicureSlice';
+import pedicureSlice from './slices/pedicureSlice';
 
 //Главный reducer который объединяет остальные редьюсеры
 const rootReducer = combineReducers({
   manicure: manicureSlice,
+  pedicure: pedicureSlice,
 });
 
 // Общее хранилище.

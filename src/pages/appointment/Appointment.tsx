@@ -1,13 +1,12 @@
 import React, { FC } from 'react';
+import Inputs from '../../components/inputs/Inputs';
 import './Appointment.scss';
 
 const Appointment: FC = () => {
   return (
-    <>
-      <div>
-        <h1 className="appointment">Запись</h1>
-      </div>
-    </>
+    <div className="appointment">
+      <Inputs />
+    </div>
   );
 };
 
