@@ -8,8 +8,8 @@ const navList: NavLink[] = [
     value: 'Услуги',
     links: [
       { value: 'Маникюр', href: '/manicure' },
-      { value: 'Педикюр', href: '/145' },
-      { value: 'Подология', href: '/156' },
+      { value: 'Педикюр', href: '/pedicure' },
+      { value: 'Подология', href: '/podology' },
     ],
   },
   { value: 'Портфолио', href: '/b' },

@@ -4,9 +4,10 @@ import SelectBox, { IOption } from '../selectBox/SelectBox';
 import Datepicker from '../datepicker/Datepicker';
 import CheckBox from '../checkbox/Checkbox';
 
-import { loadManicureData } from '../../store/slices/manicureSlice';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { loadPedicureData } from '../../store/slices/pedicureSlice';
+import { loadManicureData } from '../../store/slices/manicureSlice';
+import { loadPodologyData } from '../../store/slices/podologySlice';
 
 import './Inputs.scss';
 
@@ -17,6 +18,7 @@ type FormValues = {
   email: string;
   manicureOptions: IOption[];
   pedicureOptions: IOption[];
+  podologyOptions: IOption[];
   datePicker: Date;
   checkBox: any;
 };
@@ -25,10 +27,12 @@ export default function Inputs() {
   const dispatch = useAppDispatch();
   const manicureData = useAppSelector((state) => state.manicure.card);
   const pedicureData = useAppSelector((state) => state.pedicure.card);
+  const podologyData = useAppSelector((state) => state.podology.card);
 
   useEffect(() => {
     dispatch(loadManicureData());
     dispatch(loadPedicureData());
+    dispatch(loadPodologyData());
   }, []);
 
   const manicureOptions: IOption[] = manicureData.map((item) => {
@@ -36,6 +40,10 @@ export default function Inputs() {
   });
 
   const pedicureOptions: IOption[] = pedicureData.map((item) => {
+    return { value: item.title, label: item.title };
+  });
+
+  const podologyOptions: IOption[] = podologyData.map((item) => {
     return { value: item.title, label: item.title };
   });
 
@@ -65,6 +73,14 @@ export default function Inputs() {
         name="pedicureOptions"
         render={({ field: { onChange, value } }) => (
           <SelectBox value={value} onChange={onChange} options={pedicureOptions} />
+        )}
+      />
+
+      <Controller
+        control={control}
+        name="podologyOptions"
+        render={({ field: { onChange, value } }) => (
+          <SelectBox value={value} onChange={onChange} options={podologyOptions} />
         )}
       />
 
