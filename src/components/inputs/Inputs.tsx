@@ -6,10 +6,10 @@ import CheckBox from '../checkbox/Checkbox';
 
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { loadPedicureData } from '../../store/slices/pedicureSlice';
-import { loadManicureData } from '../../store/slices/manicureSlice';
 import { loadPodologyData } from '../../store/slices/podologySlice';
 
 import './Inputs.scss';
+import { fetchManicure } from '../../store/slices/manicureSlice';
 
 type FormValues = {
   firstName: string;
@@ -30,7 +30,7 @@ export default function Inputs() {
   const podologyData = useAppSelector((state) => state.podology.card);
 
   useEffect(() => {
-    dispatch(loadManicureData());
+    dispatch(fetchManicure());
     dispatch(loadPedicureData());
     dispatch(loadPodologyData());
   }, []);
