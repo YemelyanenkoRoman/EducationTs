@@ -13,9 +13,11 @@ const initialState: ManicureState = {
   status: 'idle',
 };
 
+const cardsApiProps = 'manicureData';
+
 export const fetchManicure = createAsyncThunk('manicureCards/fetchManicure', async function (_, { rejectWithValue }) {
   try {
-    return await api.loadManicureData();
+    return await api.loadManicureData(cardsApiProps);
   } catch (error) {
     return rejectWithValue((error as Error).message);
   }
@@ -38,6 +40,7 @@ export const manicureSlice = createSlice({
     });
     builder.addCase(fetchManicure.rejected, (state, action) => {
       state.status = 'failed';
+      console.log(action.payload);
       state.error = action.payload as string;
     });
   },
