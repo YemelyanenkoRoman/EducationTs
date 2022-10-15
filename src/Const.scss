@@ -1,7 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe&display=swap");
 
 $bacground-color: #75b37d;
 $let-sp: 3px;
+
+$z-index-navigation: 1900;
+$z-index-abolete: 1800;
 
 @mixin wrapper() {
   max-width: 1200px;
@@ -19,13 +22,13 @@ $let-sp: 3px;
 }
 
 @mixin main-text() {
-  font-family: 'Alumni Sans Pinstripe', sans-serif;
+  font-family: "Alumni Sans Pinstripe", sans-serif;
   font-weight: 600;
   font-size: 24px;
 }
 
 @mixin little-text() {
-  font-family: 'Alumni Sans Pinstripe', sans-serif;
+  font-family: "Alumni Sans Pinstripe", sans-serif;
   font-weight: 400;
   font-size: 18px;
 }

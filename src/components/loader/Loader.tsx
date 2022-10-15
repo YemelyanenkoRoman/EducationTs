@@ -1,5 +1,5 @@
-import React, { FC, PropsWithChildren } from 'react';
-import './Loader.scss';
+import React, { FC, PropsWithChildren } from "react";
+import "./Loader.scss";
 
 interface WithLoadingProps {
   isLoading: boolean;

@@ -4,6 +4,17 @@
   box-sizing: border-box;
 }
 
-main {
-  padding-top: 50px;
+html,
+body {
+  height: 100%;
+}
+
+#root {
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+}
+
+.content {
+  flex-grow: 1;
 }

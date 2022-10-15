@@ -1,11 +1,11 @@
-import React, { FC } from 'react';
-import { Link } from 'react-router-dom';
-import Dropdown from '../dropdown/Dropdown';
-import Logo from '../logo/Logo';
-import navList from '../navbar/navList';
-import { dataSocNetworks, dataContacts } from './dataFooter';
+import React, { FC } from "react";
+import { Link } from "react-router-dom";
+import Dropdown from "../dropdown/Dropdown";
+import Logo from "../logo/Logo";
+import navList from "../navbar/navList";
+import { dataSocNetworks, dataContacts } from "./dataFooter";
 
-import './Footer.scss';
+import "./Footer.scss";
 
 const Footer: FC = () => {
   return (
@@ -52,7 +52,11 @@ const Footer: FC = () => {
           <ul className="footer__soc-net-images">
             {dataSocNetworks.map((item) => (
               <li key={item.id}>
-                <a className="footer__soc-net-href" target="_blank" href={item.href}>
+                <a
+                  className="footer__soc-net-href"
+                  target="_blank"
+                  href={item.href}
+                >
                   <img className="footer__soc-net-icons" src={item.url} />
                 </a>
               </li>
@@ -75,7 +79,9 @@ const Footer: FC = () => {
           </div>
         </div>
       </div>
-      <div className="footer__border footer__footer">&#169; Nails.Olga, 2022. Все права защищены</div>
+      <div className="footer__border footer__footer">
+        &#169; Nails.Olga, 2022. Все права защищены
+      </div>
     </div>
   );
 };

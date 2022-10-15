@@ -1,13 +1,13 @@
-import React from 'react';
-import Slider from '../../components/slider/Slider';
-import dataSlider from './dataSlider';
-import './Main.scss';
+import React from "react";
+import Slider from "../../components/slider/Slider";
+import dataSlider from "./dataSlider";
+import "./Main.scss";
 
 const Main = () => {
   return (
-    <main>
+    <div>
       <Slider autoChange={true} dataSlider={dataSlider} />
-    </main>
+    </div>
   );
 };
 
