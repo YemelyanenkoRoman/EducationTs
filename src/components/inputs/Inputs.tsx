@@ -5,8 +5,8 @@ import Datepicker from '../datepicker/Datepicker';
 import CheckBox from '../checkbox/Checkbox';
 
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
-import { loadPedicureData } from '../../store/slices/pedicureSlice';
-import { loadPodologyData } from '../../store/slices/podologySlice';
+import { fetchPedicure } from '../../store/slices/pedicureSlice';
+import { fetchPodology } from '../../store/slices/podologySlice';
 
 import './Inputs.scss';
 import { fetchManicure } from '../../store/slices/manicureSlice';
@@ -31,8 +31,8 @@ export default function Inputs() {
 
   useEffect(() => {
     dispatch(fetchManicure());
-    dispatch(loadPedicureData());
-    dispatch(loadPodologyData());
+    dispatch(fetchPedicure());
+    dispatch(fetchPodology());
   }, []);
 
   const manicureOptions: IOption[] = manicureData.map((item) => {

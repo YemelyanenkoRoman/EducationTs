@@ -1,6 +1,7 @@
 import React, { FC, useEffect } from 'react';
 import ServicesCard from '../../components/servicesCard/ServicesCard';
-import { loadPedicureData } from '../../store/slices/pedicureSlice';
+import { fetchPedicure } from '../../store/slices/pedicureSlice';
+import { WithLoading } from '../../components/loader/Loader';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 
 import '../manicure/Manicure.scss';
@@ -8,22 +9,26 @@ import '../manicure/Manicure.scss';
 const Pedicure: FC = () => {
   const dispatch = useAppDispatch();
   const pedicureData = useAppSelector((state) => state.pedicure.card);
+  const error = useAppSelector((state) => state.pedicure.error);
+  const loading = useAppSelector((state) => state.pedicure.status === 'pending');
 
   useEffect(() => {
-    dispatch(loadPedicureData());
+    dispatch(fetchPedicure());
   }, []);
 
-  // console.log(pedicureData);
   return (
-    <div className="manicure">
-      <div className="wrapper">
-        <div>
-          <h1>Педикюр</h1>
-          {pedicureData.map((item, index) => {
-            return <ServicesCard key={index} cardData={item} />;
-          })}
+    <div className="manicure__page">
+      <h1 className="manicure__page-title">Педикюр</h1>
+      <WithLoading isLoading={loading}>
+        <div className="manicure">
+          <div className="wrapper">
+            {error ? <h2>{error}</h2> : <></>}
+            {pedicureData.map((item, index) => {
+              return <ServicesCard key={index} cardData={item} />;
+            })}
+          </div>
         </div>
-      </div>
+      </WithLoading>
     </div>
   );
 };

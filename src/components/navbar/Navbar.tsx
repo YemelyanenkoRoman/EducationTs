@@ -30,7 +30,7 @@ const Navbar: FC = () => {
 
   return (
     <div className="navbar">
-      <nav>
+      <nav className="navigation">
         {width < 800 ? (
           <div className={menuActive ? 'burger-btn__active' : 'burger-btn'} onClick={handleClick}>
             <span className="burger_line_plus" />

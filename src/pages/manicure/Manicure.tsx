@@ -1,19 +1,16 @@
-import React, { FC, useEffect } from "react";
-import { WithLoading } from "../../components/loader/Loader";
-import ServicesCard from "../../components/servicesCard/ServicesCard";
+import React, { FC, useEffect } from 'react';
+import { WithLoading } from '../../components/loader/Loader';
+import ServicesCard from '../../components/servicesCard/ServicesCard';
+import { useAppDispatch, useAppSelector } from '../../hooks/redux';
+import { fetchManicure } from '../../store/slices/manicureSlice';
 
-import { useAppDispatch, useAppSelector } from "../../hooks/redux";
-import { fetchManicure } from "../../store/slices/manicureSlice";
-
-import "./Manicure.scss";
+import './Manicure.scss';
 
 const Manicure: FC = () => {
   const dispatch = useAppDispatch();
   const manicureData = useAppSelector((state) => state.manicure.card);
   const error = useAppSelector((state) => state.manicure.error);
-  const loading = useAppSelector(
-    (state) => state.manicure.status === "pending"
-  );
+  const loading = useAppSelector((state) => state.manicure.status === 'pending');
 
   useEffect(() => {
     dispatch(fetchManicure());
