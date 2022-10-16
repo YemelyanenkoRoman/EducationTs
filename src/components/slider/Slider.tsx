@@ -1,5 +1,4 @@
 import React, { FC, useState, useEffect } from 'react';
-import dataSlider from '../../pages/main/dataSlider';
 import { DataSliderItem } from '../../types/types';
 import BtnSlider from './BtnSlider';
 import './Slider.scss';
@@ -16,7 +15,7 @@ const Slider: FC<SliderProps> = ({ autoChange, dataSlider }) => {
     if (autoChange) {
       let timer = setInterval(() => {
         nextSlide();
-      }, 5000);
+      }, 10000);
       return () => {
         clearInterval(timer);
       };

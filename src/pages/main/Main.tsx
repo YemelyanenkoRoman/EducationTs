@@ -1,12 +1,27 @@
-import React from "react";
-import Slider from "../../components/slider/Slider";
-import dataSlider from "./dataSlider";
-import "./Main.scss";
+import React, { FC, useEffect } from 'react';
+import { WithLoading } from '../../components/loader/Loader';
+import { useAppDispatch, useAppSelector } from '../../hooks/redux';
+import { fetchMain } from '../../store/slices/mainSlice';
+import Slider from '../../components/slider/Slider';
 
-const Main = () => {
+import './Main.scss';
+
+const Main: FC = () => {
+  const dispatch = useAppDispatch();
+  const dataSlider = useAppSelector((state) => state.main.slider);
+  const error = useAppSelector((state) => state.main.error);
+  const loading = useAppSelector((state) => state.main.status === 'pending');
+
+  useEffect(() => {
+    dispatch(fetchMain());
+  }, []);
+
   return (
     <div>
-      <Slider autoChange={true} dataSlider={dataSlider} />
+      <WithLoading isLoading={loading}>
+        {error ? <h2>{error}</h2> : <></>}
+        <Slider autoChange={true} dataSlider={dataSlider} />
+      </WithLoading>
     </div>
   );
 };
