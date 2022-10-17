@@ -13,11 +13,9 @@ const initialState: ManicureState = {
   status: 'idle',
 };
 
-const cardsApiProps = 'dataSlider';
-
 export const fetchMain = createAsyncThunk('main/fetchMain', async function (_, { rejectWithValue }) {
   try {
-    return await api.loadCardsData(cardsApiProps);
+    return await api.getSliderData();
   } catch (error) {
     return rejectWithValue((error as Error).message);
   }

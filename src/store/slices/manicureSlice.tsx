@@ -14,11 +14,9 @@ const initialState: ManicureState = {
   status: 'idle',
 };
 
-const cardsApiProps = 'manicureData';
-
 export const fetchManicure = createAsyncThunk('manicureCards/fetchManicure', async function (_, { rejectWithValue }) {
   try {
-    return await api.loadCardsData(cardsApiProps);
+    return await api.manicure.get();
   } catch (error) {
     return rejectWithValue((error as Error).message);
   }

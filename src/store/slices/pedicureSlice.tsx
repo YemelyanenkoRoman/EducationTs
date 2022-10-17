@@ -13,11 +13,9 @@ const initialState: PedicureState = {
   status: 'idle',
 };
 
-const cardsApiProps = 'pedicureData';
-
 export const fetchPedicure = createAsyncThunk('pedicureCards/fetchPedicure', async function (_, { rejectWithValue }) {
   try {
-    return await api.loadCardsData(cardsApiProps);
+    return await api.pedicure.get();
   } catch (error) {
     return rejectWithValue((error as Error).message);
   }

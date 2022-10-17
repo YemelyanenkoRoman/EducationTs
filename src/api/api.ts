@@ -1,12 +1,64 @@
-const domain = 'http://localhost:4000';
+const domain = 'http://localhost:5000';
+
+const request = async (url: string, init?: RequestInit) => {
+  const response = await fetch(`${domain}/${url}`, init);
+  if (!response.ok) {
+    throw new Error('Произошла ошибка загрузки данных');
+  }
+  const data = await response.json();
+  return data;
+};
 
 export const api = {
-  loadCardsData: async (cardsApiProps: string) => {
-    const response = await fetch(`${domain}/${cardsApiProps}`);
-    if (!response.ok) {
-      throw new Error('Произошла ошибка загрузки данных');
-    }
-    const data = await response.json();
-    return data;
+  getSliderData: async () => {
+    return await request('mainSliderData');
+  },
+  manicure: {
+    get: async () => {
+      return await request('manicure');
+    },
+    add: async (data: {
+      title: string;
+      visibleText: string;
+      hiddenText: string;
+      imgDataPath: {
+        id: string | number;
+        url: string;
+      }[];
+    }) => {
+      return await request('manicure', { method: 'POST', body: JSON.stringify(data) });
+    },
+  },
+  pedicure: {
+    get: async () => {
+      return await request('pedicure');
+    },
+    add: async (data: {
+      title: string;
+      visibleText: string;
+      hiddenText: string;
+      imgDataPath: {
+        id: string | number;
+        url: string;
+      }[];
+    }) => {
+      return await request('pedicure', { method: 'POST', body: JSON.stringify(data) });
+    },
+  },
+  podology: {
+    get: async () => {
+      return await request('podology');
+    },
+    add: async (data: {
+      title: string;
+      visibleText: string;
+      hiddenText: string;
+      imgDataPath: {
+        id: string | number;
+        url: string;
+      }[];
+    }) => {
+      return await request('podology', { method: 'POST', body: JSON.stringify(data) });
+    },
   },
 };

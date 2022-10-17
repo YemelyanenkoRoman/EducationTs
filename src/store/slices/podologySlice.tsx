@@ -13,11 +13,9 @@ const initialState: PodologyState = {
   status: 'idle',
 };
 
-const cardsApiProps = 'podologyData';
-
 export const fetchPodology = createAsyncThunk('podologyCards/fetchPodology', async function (_, { rejectWithValue }) {
   try {
-    return await api.loadCardsData(cardsApiProps);
+    return await api.podology.get();
   } catch (error) {
     return rejectWithValue((error as Error).message);
   }
