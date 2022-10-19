@@ -5,6 +5,8 @@ import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { fetchManicure } from '../../store/slices/manicureSlice';
 
 import './Manicure.scss';
+import '../../components/servicesCard/ServicesCard.scss';
+import { Link } from 'react-router-dom';
 
 const Manicure: FC = () => {
   const dispatch = useAppDispatch();
@@ -18,6 +20,13 @@ const Manicure: FC = () => {
 
   return (
     <div className="manicure__page">
+      <Link to="/manicureCreate">
+        <button className="buttonSB buttonAdmin" onClick={() => {}}>
+          ADMIN BUTTON <br />
+          ADD DATA
+        </button>
+      </Link>
+
       <h1 className="manicure__page-title">Маникюр</h1>
       <WithLoading isLoading={loading}>
         <div className="manicure">
