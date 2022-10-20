@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useForm, useController, UseControllerProps, Controller, useFieldArray } from 'react-hook-form';
 import { v4 as uuidv4 } from 'uuid';
 import { api } from '../../api/api';
+import { Loader } from '../../components/loader/Loader';
 
 type FormValues = {
   title: string;
@@ -11,6 +12,8 @@ type FormValues = {
 };
 
 const ManicureCreate = () => {
+  const [isLoading, setIsLoading] = useState(false);
+
   const { handleSubmit, control } = useForm<FormValues>({
     defaultValues: {
       title: '',
@@ -20,12 +23,12 @@ const ManicureCreate = () => {
     },
   });
 
-  const { fields, append, prepend, remove, swap, move, insert } = useFieldArray<FormValues>({
+  const { fields, append, remove } = useFieldArray<FormValues>({
     control,
     name: 'urls',
   });
 
-  const onSubmit = (data: FormValues) => {
+  const onSubmit = async (data: FormValues) => {
     const urls = data.urls.map((item) => {
       return {
         id: uuidv4(),
@@ -33,17 +36,23 @@ const ManicureCreate = () => {
       };
     });
 
-    api.manicure.add({
+    setIsLoading(true);
+    await api.manicure.add({
       title: data.title,
       visibleText: data.visibleText,
       hiddenText: data.hiddenText,
       imgDataPath: urls,
     });
+    setIsLoading(false);
+
     console.log(data);
   };
 
+  console.log(isLoading);
+
   return (
     <form className="form" onSubmit={handleSubmit(onSubmit)}>
+      {isLoading ? <Loader /> : <></>}
       <label>
         {'title'}
         <Controller
