@@ -9,10 +9,12 @@ type FormValues = {
   visibleText: string;
   hiddenText: string;
   urls: { url: string }[];
+  error?: string;
 };
 
 const ManicureCreate = () => {
   const [isLoading, setIsLoading] = useState(false);
+  const [erronMassage, setErrorMessage] = useState('');
 
   const { handleSubmit, control } = useForm<FormValues>({
     defaultValues: {
@@ -37,21 +39,27 @@ const ManicureCreate = () => {
     });
 
     setIsLoading(true);
-    await api.manicure.add({
-      title: data.title,
-      visibleText: data.visibleText,
-      hiddenText: data.hiddenText,
-      imgDataPath: urls,
-    });
-    setIsLoading(false);
+    try {
+      await api.manicure.add({
+        title: data.title,
+        visibleText: data.visibleText,
+        hiddenText: data.hiddenText,
+        imgDataPath: urls,
+      });
+    } catch (error) {
+      setErrorMessage('error');
+    }
 
-    console.log(data);
+    // setIsLoading(false);
+
+    // console.log(data);
   };
 
-  console.log(isLoading);
+  // console.log(isLoading);
 
   return (
     <form className="form" onSubmit={handleSubmit(onSubmit)}>
+      {erronMassage ? <h1>{erronMassage}</h1> : <></>}
       {isLoading ? <Loader /> : <></>}
       <label>
         {'title'}

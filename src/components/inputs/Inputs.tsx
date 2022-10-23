@@ -47,7 +47,7 @@ export default function Inputs() {
     return { value: item.title, label: item.title };
   });
 
-  const { handleSubmit, control } = useForm<FormValues>({
+  const formData = useForm<FormValues>({
     defaultValues: {
       firstName: '',
       surname: '',
@@ -56,12 +56,15 @@ export default function Inputs() {
     },
   });
 
-  const onSubmit = (data: FormValues) => console.log(data);
+  const onSubmit = (data: FormValues) => {
+    console.log(formData);
+    formData.reset();
+  };
 
   return (
-    <form className="form" onSubmit={handleSubmit(onSubmit)}>
+    <form className="form" onSubmit={formData.handleSubmit(onSubmit)}>
       <Controller
-        control={control}
+        control={formData.control}
         name="manicureOptions"
         render={({ field: { onChange, value } }) => (
           <SelectBox value={value} onChange={onChange} options={manicureOptions} />
@@ -69,7 +72,7 @@ export default function Inputs() {
       />
 
       <Controller
-        control={control}
+        control={formData.control}
         name="pedicureOptions"
         render={({ field: { onChange, value } }) => (
           <SelectBox value={value} onChange={onChange} options={pedicureOptions} />
@@ -77,7 +80,7 @@ export default function Inputs() {
       />
 
       <Controller
-        control={control}
+        control={formData.control}
         name="podologyOptions"
         render={({ field: { onChange, value } }) => (
           <SelectBox value={value} onChange={onChange} options={podologyOptions} />
@@ -87,7 +90,7 @@ export default function Inputs() {
       <label>
         {'Имя'}
         <Controller
-          control={control}
+          control={formData.control}
           name="firstName"
           render={({ field, fieldState }) => (
             <div>
@@ -104,7 +107,7 @@ export default function Inputs() {
       <label>
         {'Фамилия'}
         <Controller
-          control={control}
+          control={formData.control}
           name="surname"
           render={({ field, fieldState }) => (
             <div>
@@ -118,7 +121,7 @@ export default function Inputs() {
       <label>
         {'Номер телефона'}
         <Controller
-          control={control}
+          control={formData.control}
           name="phoneNumber"
           render={({ field, fieldState }) => (
             <div>
@@ -147,7 +150,7 @@ export default function Inputs() {
       <label>
         {'Электронная почта'}
         <Controller
-          control={control}
+          control={formData.control}
           name="email"
           render={({ field, fieldState }) => (
             <div>
@@ -166,7 +169,7 @@ export default function Inputs() {
       </label>
 
       <Controller
-        control={control}
+        control={formData.control}
         name="datePicker"
         render={({ field: { onChange, value } }) => (
           <Datepicker onChange={onChange} date={value} showTimeSelect={true} />
@@ -174,7 +177,7 @@ export default function Inputs() {
       />
 
       <Controller
-        control={control}
+        control={formData.control}
         name="checkBox"
         render={({ field: { onChange, value } }) => <CheckBox onChange={onChange} checked={value} />}
         rules={{
