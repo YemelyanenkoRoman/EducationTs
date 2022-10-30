@@ -13,6 +13,7 @@ export const api = {
   getSliderData: async () => {
     return await request('mainSliderData');
   },
+
   manicure: {
     get: async () => {
       return await request('manicure');

@@ -1,14 +1,19 @@
 import React, { FC, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { CardData } from '../../types/types';
 import Slaider from '../slider/Slider';
 import './ServicesCard.scss';
 
 interface ServicesCardProps {
   cardData: CardData;
+  category: string;
 }
 
-const ServicesCard: FC<ServicesCardProps> = ({ cardData }) => {
+const ServicesCard: FC<ServicesCardProps> = ({ cardData, category }) => {
   const [isText, setIsText] = useState<boolean>(true);
+
+  const navigate = useNavigate();
+  const appointment = () => navigate('/appointment', { replace: true, state: { title: cardData.title, category } });
 
   return (
     <div className="servicesCard">
@@ -23,7 +28,9 @@ const ServicesCard: FC<ServicesCardProps> = ({ cardData }) => {
           <p className="servicesCard__visible-text">{cardData.visibleText}</p>
           <p className={isText ? 'none' : 'text'}>{cardData.hiddenText}</p>
           <span className="servicesCard__buttonsSB">
-            <button className="buttonSB">Записаться</button>
+            <button className="buttonSB" onClick={() => appointment()}>
+              Записаться
+            </button>
             <button className={isText ? 'buttonSB' : 'none'} onClick={() => setIsText(false)}>
               Читать далее
             </button>

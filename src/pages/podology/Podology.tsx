@@ -24,7 +24,7 @@ const Podology: FC = () => {
           <div className="wrapper">
             {error ? <h2>{error}</h2> : <></>}
             {podologyData.map((item, index) => {
-              return <ServicesCard key={index} cardData={item} />;
+              return <ServicesCard key={index} cardData={item} category={'podology'} />;
             })}
           </div>
         </div>

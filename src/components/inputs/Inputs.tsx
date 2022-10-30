@@ -29,6 +29,8 @@ export default function Inputs() {
   const pedicureData = useAppSelector((state) => state.pedicure.card);
   const podologyData = useAppSelector((state) => state.podology.card);
 
+  console.log(window.history);
+
   useEffect(() => {
     dispatch(fetchManicure());
     dispatch(fetchPedicure());
@@ -47,13 +49,27 @@ export default function Inputs() {
     return { value: item.title, label: item.title };
   });
 
+  const defaultValue: Partial<FormValues> = {
+    firstName: '',
+    surname: '',
+    phoneNumber: '+375',
+    email: '',
+  };
+  //
+  if (window.history.state.usr.category === 'manicure') {
+    defaultValue.manicureOptions = [{ value: window.history.state.usr.title, label: window.history.state.usr.title }];
+  }
+
+  if (window.history.state.usr.category === 'pedicure') {
+    defaultValue.pedicureOptions = [{ value: window.history.state.usr.title, label: window.history.state.usr.title }];
+  }
+
+  if (window.history.state.usr.category === 'podology') {
+    defaultValue.podologyOptions = [{ value: window.history.state.usr.title, label: window.history.state.usr.title }];
+  }
+  //
   const formData = useForm<FormValues>({
-    defaultValues: {
-      firstName: '',
-      surname: '',
-      phoneNumber: '+375',
-      email: '',
-    },
+    defaultValues: defaultValue,
   });
 
   const onSubmit = (data: FormValues) => {

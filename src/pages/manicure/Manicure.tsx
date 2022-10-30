@@ -23,7 +23,8 @@ const Manicure: FC = () => {
       <Link to="/manicureCreate">
         <button className="buttonSB buttonAdmin" onClick={() => {}}>
           ADMIN BUTTON <br />
-          ADD DATA
+          ADD DATA <br />
+          MANICURE
         </button>
       </Link>
 
@@ -33,7 +34,7 @@ const Manicure: FC = () => {
           <div className="wrapper">
             {error ? <h2>{error}</h2> : <></>}
             {manicureData.map((item, index) => {
-              return <ServicesCard key={index} cardData={item} />;
+              return <ServicesCard key={index} cardData={item} category={'manicure'} />;
             })}
           </div>
         </div>

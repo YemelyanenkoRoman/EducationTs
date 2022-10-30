@@ -7,11 +7,9 @@ import { api } from '../../api/api';
 import { Loader } from '../../components/loader/Loader';
 import BaseCategoryCreate, { FormValues } from '../../components/baseCategoryCreate/BaseCategoryCreate';
 
-console.log(window.history);
-
-const ManicureCreate = () => {
+const PodologyCreate = () => {
   const navigate = useNavigate();
-  const goHome = () => navigate('/manicure', { replace: true });
+  const goHome = () => navigate('/podology', { replace: true });
 
   const onSubmit = async (data: FormValues) => {
     const urls = data.urls.map((item) => {
@@ -21,7 +19,7 @@ const ManicureCreate = () => {
       };
     });
 
-    await api.manicure.add({
+    await api.podology.add({
       title: data.title,
       visibleText: data.visibleText,
       hiddenText: data.hiddenText,
@@ -34,4 +32,4 @@ const ManicureCreate = () => {
   return <BaseCategoryCreate onSubmit={onSubmit} />;
 };
 
-export default ManicureCreate;
+export default PodologyCreate;
