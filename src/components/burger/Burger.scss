@@ -1,0 +1,56 @@
+@import '../../Const.scss';
+
+.menu {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 50px;
+  left: 0;
+  transition: all 0.2s;
+  transform: translateX(-130%);
+
+  &__content {
+    @include flex-column-ai-center();
+    width: 50%;
+    height: 100%;
+    background: $bacground-color;
+    transition: all 0.2s;
+  }
+}
+
+.active {
+  transform: translateX(0);
+}
+
+.blur {
+  width: 70vw;
+  height: 100vh;
+  left: 50%;
+  backdrop-filter: blur(2px);
+  position: absolute;
+}
+
+.burger {
+  &__ul {
+    @include flex-column-ai-center();
+  }
+
+  &__li {
+    @include flex-ai-center();
+    margin: 10px 0;
+    list-style-type: none;
+  }
+
+  &__href {
+    color: black;
+    font-size: 25px;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+}
+
+.menu__list {
+  @include main-text();
+  letter-spacing: 3px;
+  list-style-type: none;
+}

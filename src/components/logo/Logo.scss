@@ -1,0 +1,24 @@
+@import '../../Const.scss';
+
+.logo {
+  @include flex-column-ai-center;
+  min-width: 300px;
+}
+
+.logo__title {
+  @include main-text;
+  color: #000;
+  letter-spacing: 10px;
+  text-transform: uppercase;
+}
+
+.logo__subtitle {
+  @include little-text;
+  color: #fff;
+  letter-spacing: 5px;
+  text-align: center;
+}
+
+.logo__href {
+  text-decoration: none;
+}

@@ -1,0 +1,75 @@
+@import '../../Const.scss';
+
+.container-slider {
+  max-width: 100%;
+  height: 550px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.slide {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  opacity: 0;
+  transition: opacity ease-in-out 0.4s;
+}
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.active-anim {
+  opacity: 1;
+}
+
+.btn-slide {
+  @include flex-ai-center();
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  cursor: pointer;
+
+  & img {
+    width: 25px;
+    height: 25px;
+    pointer-events: none;
+  }
+}
+
+.prev {
+  top: 50%;
+  left: 20px;
+  transform: translateY(-60%);
+}
+
+.next {
+  top: 50%;
+  right: 20px;
+  transform: translateY(-60%);
+}
+
+.container-dots {
+  @include flex-ai-center();
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  border: 3px solid #f1f1f1;
+  margin: 0 5px;
+  background: #f1f1f1;
+
+  &.active {
+    width: 10px;
+    height: 10px;
+  }
+}

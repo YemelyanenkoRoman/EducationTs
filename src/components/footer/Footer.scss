@@ -1,0 +1,119 @@
+@import "../../Const.scss";
+
+.footer {
+  color: #000;
+  @include little-text();
+  font-weight: 600;
+  z-index: $z-index-navigation;
+
+  &__box {
+    padding: 15px 0 15px 0;
+    background: linear-gradient(to top left, rgba(117, 179, 125, 0.7), #f0f6f1);
+    display: flex;
+    justify-content: space-around;
+  }
+
+  &__border {
+    min-height: 20px;
+    width: 100%;
+    background: $bacground-color;
+  }
+
+  &__title {
+    display: flex;
+    justify-content: center;
+    letter-spacing: $let-sp;
+    text-transform: uppercase;
+  }
+
+  &__menu {
+    display: flex;
+    text-transform: uppercase;
+
+    &-ul {
+      @include flex-column-ai-center();
+      list-style-type: none;
+    }
+
+    &-li {
+      margin-bottom: 5px;
+    }
+
+    &-href {
+      text-decoration: none;
+      color: #000;
+      @include flex-ai-center();
+    }
+  }
+
+  &__address {
+    max-width: 210px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &-ul {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &-href {
+      display: flex;
+      text-decoration: none;
+      color: #000;
+    }
+
+    &-icons {
+      max-width: 25px;
+      max-height: 25px;
+      margin: 5px;
+      margin-right: 20px;
+    }
+
+    &-li {
+      display: flex;
+      margin-top: 5px;
+    }
+  }
+
+  &__soc-net {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &-images {
+      @include flex-ai-center();
+      justify-content: center;
+      list-style-type: none;
+    }
+
+    &-icons {
+      width: 40px;
+      max-height: 40px;
+      margin: 5px;
+    }
+  }
+
+  &__logo {
+    margin-bottom: 20px;
+  }
+
+  &__footer {
+    @include flex-ai-center();
+    justify-content: center;
+    letter-spacing: $let-sp;
+  }
+}
+
+.entrepreneur {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.menu__href {
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #000;
+  list-style-type: none;
+}
