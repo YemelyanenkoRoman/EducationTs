@@ -5,6 +5,8 @@ import { Navigate } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import { api } from '../../api/api';
 import { Loader } from '../loader/Loader';
+import InputField from '../form/inputField/InputField';
+import TextareaField from '../form/textareaField/TextareaField';
 
 export type FormValues = {
   title: string;
@@ -31,8 +33,9 @@ const BaseCategoryCreate: FC<BaseCategoryCreateProps> = (props) => {
     },
   });
 
+  // Для динамических форм
   const { fields, append, remove } = useFieldArray<FormValues>({
-    control,
+    control: control,
     name: 'urls',
   });
 
@@ -50,84 +53,47 @@ const BaseCategoryCreate: FC<BaseCategoryCreateProps> = (props) => {
     <form className="form" onSubmit={handleSubmit(onSubmit)}>
       {erronMassage ? <h1>{erronMassage}</h1> : <></>}
       {isLoading ? <Loader /> : <></>}
-      <label>
-        {'title'}
-        <Controller
-          control={control}
-          name="title"
-          render={({ field, fieldState }) => (
-            <div>
-              <input className="input" value={field.value} onChange={field.onChange} onBlur={field.onBlur} />
-              <p>{fieldState.error && fieldState.error.message}</p>
-            </div>
-          )}
-          rules={{
-            required: 'Это поле обязательно для ввода',
-          }}
-        />
-      </label>
 
-      <label>
-        {'visible text'}
-        <Controller
-          control={control}
-          name="visibleText"
-          render={({ field, fieldState }) => (
-            <div>
-              <textarea className="textarea" value={field.value} onChange={field.onChange} onBlur={field.onBlur} />
-              <p>{fieldState.error && fieldState.error.message}</p>
-            </div>
-          )}
-          rules={{
-            required: 'Это поле обязательно для ввода',
-          }}
-        />
-      </label>
+      <InputField
+        control={control}
+        name="title"
+        rules={{
+          required: 'Поле обязательно',
+          minLength: {
+            message: 'Минимум два символа',
+            value: 2,
+          },
+        }}
+        label="Имя пользователя"
+      />
 
-      <label>
-        {'hidden text'}
-        <Controller
-          control={control}
-          name="hiddenText"
-          render={({ field, fieldState }) => (
-            <div>
-              <textarea className="textarea" value={field.value} onChange={field.onChange} onBlur={field.onBlur} />
-              <p>{fieldState.error && fieldState.error.message}</p>
-            </div>
-          )}
-          rules={{
-            required: 'Это поле обязательно для ввода',
-          }}
-        />
-      </label>
+      <TextareaField control={control} name="visibleText" label="Visible text" />
 
-      <label>
-        {fields.map((field, index) => {
+      <TextareaField control={control} name="hiddenText" label="HiddenText" />
+
+      <div className="dynamic-inputs">
+        {fields.map((item, index) => {
           return (
-            <Controller
-              key={field.id}
-              control={control}
-              name={`urls.${index}.url`}
-              render={({ field, fieldState }) => (
-                <div>
-                  <input className="input" value={field.value} onChange={field.onChange} onBlur={field.onBlur} />
-                  <button
-                    onClick={() => {
-                      remove(index);
-                    }}
-                  >
-                    remove
-                  </button>
-                  <p>{fieldState.error && fieldState.error.message}</p>
-                </div>
-              )}
-              rules={{
-                required: 'Это поле обязательно для ввода',
-              }}
-            />
+            <div key={item.id}>
+              <InputField
+                control={control}
+                name={`urls.${index}.url`}
+                rules={{
+                  required: 'Поле обязательно',
+                }}
+                label="Link Field"
+              />
+              <button
+                onClick={() => {
+                  remove(index);
+                }}
+              >
+                remove Link Field
+              </button>
+            </div>
           );
         })}
-      </label>
+      </div>
 
       <button
         onClick={() => {

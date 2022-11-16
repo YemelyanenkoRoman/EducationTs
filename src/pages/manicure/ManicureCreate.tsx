@@ -7,8 +7,6 @@ import { api } from '../../api/api';
 import { Loader } from '../../components/loader/Loader';
 import BaseCategoryCreate, { FormValues } from '../../components/baseCategoryCreate/BaseCategoryCreate';
 
-console.log(window.history);
-
 const ManicureCreate = () => {
   const navigate = useNavigate();
   const goHome = () => navigate('/manicure', { replace: true });

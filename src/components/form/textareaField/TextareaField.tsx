@@ -6,6 +6,7 @@ interface InputValue {
   name: string;
   rules?: Object;
   label?: string;
+  onBlur?: any;
 }
 
 const InputField: FC<InputValue> = (props) => {
@@ -18,7 +19,7 @@ const InputField: FC<InputValue> = (props) => {
           <div>
             <label className="label">
               {props.label}
-              <input className="input" value={field.value} onChange={field.onChange} />
+              <textarea className="textarea" value={field.value} onChange={field.onChange} />
               <div className="error">{!!fieldState.error?.message && fieldState.error.message}</div>
             </label>
           </div>
