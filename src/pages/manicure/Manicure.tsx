@@ -3,10 +3,9 @@ import { WithLoading } from '../../components/loader/Loader';
 import ServicesCard from '../../components/servicesCard/ServicesCard';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { fetchManicure } from '../../store/slices/manicureSlice';
-
+import { Link } from 'react-router-dom';
 import './Manicure.scss';
 import '../../components/servicesCard/ServicesCard.scss';
-import { Link } from 'react-router-dom';
 
 const Manicure: FC = () => {
   const dispatch = useAppDispatch();
@@ -20,7 +19,7 @@ const Manicure: FC = () => {
 
   return (
     <div className="manicure__page">
-      <Link to="/manicureCreate">
+      <Link to="/CreateCard/manicure">
         <button className="buttonSB buttonAdmin" onClick={() => {}}>
           ADMIN BUTTON <br />
           ADD DATA <br />

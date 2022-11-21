@@ -14,11 +14,25 @@ export const api = {
     return await request('mainSliderData');
   },
 
+  create: async (data: {
+    category: string;
+    title: string;
+    visibleText: string;
+    hiddenText: string;
+    imgDataPath: {
+      id: string | number;
+      url: string;
+    }[];
+  }) => {
+    return await request(data.category, { method: 'POST', body: JSON.stringify(data) });
+  },
+
   manicure: {
     get: async () => {
       return await request('manicure');
     },
-    add: async (data: {
+    create: async (data: {
+      category: string;
       title: string;
       visibleText: string;
       hiddenText: string;
@@ -27,14 +41,15 @@ export const api = {
         url: string;
       }[];
     }) => {
-      return await request('manicure', { method: 'POST', body: JSON.stringify(data) });
+      return await request(data.category, { method: 'POST', body: JSON.stringify(data) });
     },
   },
   pedicure: {
     get: async () => {
       return await request('pedicure');
     },
-    add: async (data: {
+    create: async (data: {
+      category: string;
       title: string;
       visibleText: string;
       hiddenText: string;
@@ -43,14 +58,15 @@ export const api = {
         url: string;
       }[];
     }) => {
-      return await request('pedicure', { method: 'POST', body: JSON.stringify(data) });
+      return await request(data.category, { method: 'POST', body: JSON.stringify(data) });
     },
   },
   podology: {
     get: async () => {
       return await request('podology');
     },
-    add: async (data: {
+    create: async (data: {
+      category: string;
       title: string;
       visibleText: string;
       hiddenText: string;
@@ -59,7 +75,7 @@ export const api = {
         url: string;
       }[];
     }) => {
-      return await request('podology', { method: 'POST', body: JSON.stringify(data) });
+      return await request(data.category, { method: 'POST', body: JSON.stringify(data) });
     },
   },
 };

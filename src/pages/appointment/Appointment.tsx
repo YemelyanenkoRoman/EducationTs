@@ -7,9 +7,10 @@ import { fetchPodology } from '../../store/slices/podologySlice';
 import { fetchManicure } from '../../store/slices/manicureSlice';
 
 import InputField from '../../components/form/inputField/InputField';
-import SelectField, { IOption } from '../../components/form/selectField/SelectField';
+import SelectField from '../../components/form/selectField/SelectField';
 import DatepickerField from '../../components/form/datepickerField/DatepickerField';
 import CheckboxField from '../../components/form/checkboxField/CheckboxField';
+import { IOption } from '../../components/common/Select/Select';
 
 type FormValues = {
   firstName: string;

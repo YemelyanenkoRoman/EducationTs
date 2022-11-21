@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import { Control, Controller } from 'react-hook-form';
+import { Input } from '../../common/input/Input';
 
 interface InputValue {
   control: Control<any>;
@@ -18,7 +19,7 @@ const InputField: FC<InputValue> = (props) => {
           <div>
             <label className="label">
               {props.label}
-              <input className="input" value={field.value} onChange={field.onChange} />
+              <Input value={field.value} onChange={field.onChange} />
               <div className="error">{!!fieldState.error?.message && fieldState.error.message}</div>
             </label>
           </div>

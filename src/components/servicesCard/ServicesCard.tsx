@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { CardData } from '../../types/types';
 import Slaider from '../slider/Slider';
 import './ServicesCard.scss';
@@ -14,6 +14,8 @@ const ServicesCard: FC<ServicesCardProps> = ({ cardData, category }) => {
 
   const navigate = useNavigate();
   const appointment = () => navigate('/appointment', { replace: true, state: { title: cardData.title, category } });
+
+  const edit = () => navigate(`/manicureEdit/${cardData.id}/${category}`);
 
   return (
     <div className="servicesCard">
@@ -34,6 +36,11 @@ const ServicesCard: FC<ServicesCardProps> = ({ cardData, category }) => {
             <button className={isText ? 'buttonSB' : 'none'} onClick={() => setIsText(false)}>
               Читать далее
             </button>
+
+            <button className="buttonSB" onClick={() => edit()}>
+              EDIT
+            </button>
+
             <button className={isText ? 'none' : 'buttonSB'} onClick={() => setIsText(true)}>
               Закрыть
             </button>

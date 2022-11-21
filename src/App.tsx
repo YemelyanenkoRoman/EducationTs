@@ -7,12 +7,13 @@ import Pedicure from './pages/pedicure/Pedicure';
 import Appointment from './pages/appointment/Appointment';
 import Footer from './components/footer/Footer';
 
-import './App.scss';
 import Podology from './pages/podology/Podology';
 import { api } from './api/api';
-import ManicureCreate from './pages/manicure/ManicureCreate';
-import PedicureCreate from './pages/pedicure/PedicureCreate';
-import PodologyCreate from './pages/podology/PodologyCreate';
+
+import CreateCard from './pages/CreateCard/CreateCard';
+import ManicureEdit from './pages/EditCard/EditCard';
+
+import './App.scss';
 
 const App = () => {
   return (
@@ -26,9 +27,8 @@ const App = () => {
             <Route path="/manicure" element={<Manicure />} />
             <Route path="/pedicure" element={<Pedicure />} />
             <Route path="/podology" element={<Podology />} />
-            <Route path="/manicureCreate" element={<ManicureCreate />} />
-            <Route path="/pedicureCreate" element={<PedicureCreate />} />
-            <Route path="/podologyCreate" element={<PodologyCreate />} />
+            <Route path="/CreateCard/:id" element={<CreateCard />} />
+            <Route path="/manicureEdit/:id/:category" element={<ManicureEdit />} />
           </Routes>
         </main>
         <Footer />

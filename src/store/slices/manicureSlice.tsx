@@ -35,6 +35,7 @@ export const manicureSlice = createSlice({
 
     builder.addCase(fetchManicure.fulfilled, (state, action) => {
       state.status = 'succeeded';
+      // console.log(action.payload);
       state.card = action.payload;
     });
     builder.addCase(fetchManicure.rejected, (state, action) => {

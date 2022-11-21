@@ -3,6 +3,7 @@ import { WithLoading } from '../../components/loader/Loader';
 import ServicesCard from '../../components/servicesCard/ServicesCard';
 import { fetchPodology } from '../../store/slices/podologySlice';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
+import { Link } from 'react-router-dom';
 
 import '../manicure/Manicure.scss';
 
@@ -18,6 +19,13 @@ const Podology: FC = () => {
 
   return (
     <div className="manicure__page">
+      <Link to="/CreateCard/podology">
+        <button className="buttonSB buttonAdmin" onClick={() => {}}>
+          ADMIN BUTTON <br />
+          ADD DATA <br />
+          PODOLOGY
+        </button>
+      </Link>
       <h1 className="manicure__page-title">Подология</h1>
       <WithLoading isLoading={loading}>
         <div className="manicure">

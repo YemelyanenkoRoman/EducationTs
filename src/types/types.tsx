@@ -20,6 +20,7 @@ export interface DataSliderItem {
 // manicureData
 
 export interface CardData {
+  id: string | number;
   title: string;
   visibleText: string;
   hiddenText: string;

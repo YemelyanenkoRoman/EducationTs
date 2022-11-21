@@ -19,7 +19,7 @@ const Pedicure: FC = () => {
 
   return (
     <div className="manicure__page">
-      <Link to="/pedicureCreate">
+      <Link to="/CreateCard/pedicure">
         <button className="buttonSB buttonAdmin" onClick={() => {}}>
           ADMIN BUTTON <br />
           ADD DATA <br />
