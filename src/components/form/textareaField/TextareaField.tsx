@@ -1,7 +1,8 @@
 import React, { FC } from 'react';
 import { Control, Controller } from 'react-hook-form';
+import { Textarea } from '../../common/Textarea/Textarea';
 
-interface InputValue {
+interface TextareaFieldProps {
   control: Control<any>;
   name: string;
   rules?: Object;
@@ -9,7 +10,7 @@ interface InputValue {
   onBlur?: any;
 }
 
-const InputField: FC<InputValue> = (props) => {
+const TextareaField: FC<TextareaFieldProps> = (props) => {
   return (
     <Controller
       control={props.control}
@@ -19,7 +20,7 @@ const InputField: FC<InputValue> = (props) => {
           <div>
             <label className="label">
               {props.label}
-              <textarea className="textarea" value={field.value} onChange={field.onChange} />
+              <Textarea value={field.value} onChange={field.onChange} />
               <div className="error">{!!fieldState.error?.message && fieldState.error.message}</div>
             </label>
           </div>
@@ -29,4 +30,4 @@ const InputField: FC<InputValue> = (props) => {
     />
   );
 };
-export default InputField;
+export default TextareaField;

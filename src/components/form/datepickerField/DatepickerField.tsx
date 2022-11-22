@@ -1,29 +1,22 @@
 import React, { FC } from 'react';
-import ReactDatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
 import { Control, Controller } from 'react-hook-form';
+import { Datepicker } from '../../common/Datepicker/Datepicker';
 
-interface DatePickerProps {
+interface DatepickerFieldProps {
+  inline: boolean | undefined;
+  showTimeSelect?: boolean | undefined;
   control: Control<any>;
   name: string;
-
-  showTimeSelect?: boolean;
-  inline?: boolean;
 }
 
-const DatepickerField: FC<DatePickerProps> = (props) => {
+const DatepickerField: FC<DatepickerFieldProps> = (props) => {
   return (
     <Controller
       control={props.control}
       name={props.name}
       render={({ field: { onChange, value } }) => {
         return (
-          <ReactDatePicker
-            selected={value}
-            onChange={onChange}
-            showTimeSelect={props.showTimeSelect}
-            inline={props.inline}
-          />
+          <Datepicker onChange={onChange} value={value} showTimeSelect={props.showTimeSelect} inline={props.inline} />
         );
       }}
     />
