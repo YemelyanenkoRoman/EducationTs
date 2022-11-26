@@ -2,6 +2,8 @@ import React, { FC } from 'react';
 import ReactDatepicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
+import './Datepicker.scss';
+
 export interface DatepickerProps {
   showTimeSelect?: boolean | undefined;
   inline?: boolean | undefined;

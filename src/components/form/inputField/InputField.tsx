@@ -2,6 +2,8 @@ import React, { FC } from 'react';
 import { Control, Controller } from 'react-hook-form';
 import { Input } from '../../common/input/Input';
 
+import './inputField.scss';
+
 interface InputValue {
   control: Control<any>;
   name: string;
@@ -19,7 +21,7 @@ const InputField: FC<InputValue> = (props) => {
           <div>
             <label className="label">
               {props.label}
-              <Input value={field.value} onChange={field.onChange} />
+              <Input value={field.value} onChange={field.onChange} fieldState={fieldState} />
               <div className="error">{!!fieldState.error?.message && fieldState.error.message}</div>
             </label>
           </div>

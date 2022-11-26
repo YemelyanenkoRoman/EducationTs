@@ -1,0 +1,14 @@
+@import '../../../Const.scss';
+
+.label {
+  @include flex-column-ai-center();
+  @include main-text;
+  text-transform: uppercase;
+}
+
+.error {
+  @include little-text;
+  font-weight: 600;
+  color: #ff0000;
+  height: 20px;
+}

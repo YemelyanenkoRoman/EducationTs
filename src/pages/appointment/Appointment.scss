@@ -1,3 +1,22 @@
-.appointment {
-  padding-top: 50px;
+@import '../../Const.scss';
+
+.appointment-form {
+  @include flex-column-ai-center();
+}
+
+.selects {
+  margin-bottom: 20px;
+}
+
+.checkBox__container {
+  @include little-text();
+  font-weight: 600;
+  margin: 20px 0 20px 0;
+}
+
+.button-main_margin {
+  margin-bottom: 20px;
+  .button-main {
+    @include button-main();
+  }
 }

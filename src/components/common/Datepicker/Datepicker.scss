@@ -1,0 +1,58 @@
+@import '../../../Const.scss';
+
+.react-datepicker {
+  @include little-text();
+  font-weight: 600;
+  border: 0px solid $bacground-color;
+  border-radius: 2px;
+  box-shadow: 0 0 5px $bacground-color;
+}
+
+.react-datepicker-time__header {
+  @include main-text();
+  height: 53px;
+}
+
+.react-datepicker__header {
+  background-color: rgba(117, 179, 125, 0.5);
+  border-top-left-radius: 2px;
+  border-bottom: 0px solid $bacground-color;
+}
+
+.react-datepicker__time-container {
+  border-left: 0px solid $bacground-color;
+  //   box-shadow: -1px 0 5px $bacground-color;
+}
+
+.react-datepicker__navigation-icon {
+  &:before {
+    border-color: $bacground-color !important;
+    top: 10px;
+  }
+}
+
+.react-datepicker__current-month {
+  @include main-text();
+}
+
+.react-datepicker__header:not(.react-datepicker__header--has-time-select) {
+  border-top-right-radius: 2px;
+}
+
+.react-datepicker__day--keyboard-selected {
+  background-color: rgba(117, 179, 125, 0.5) !important;
+}
+
+.react-datepicker__day--selected {
+  background-color: rgba(117, 179, 125, 0.5) !important;
+}
+
+.react-datepicker__time-container
+  .react-datepicker__time
+  .react-datepicker__time-box
+  ul.react-datepicker__time-list
+  li.react-datepicker__time-list-item--selected {
+  background-color: rgba(117, 179, 125, 0.5) !important;
+  color: white;
+  font-weight: bold;
+}

@@ -1,0 +1,42 @@
+@import '../../../Const.scss';
+
+.css-b62m3t-container {
+  @include main-text;
+  box-shadow: 0 0 5px #75b37d;
+  border-radius: 2px;
+  transition: 0.3s box-shadow;
+  border: 0;
+
+  &:hover {
+    border-style: none;
+    outline: none;
+    border-radius: 2px;
+    box-shadow: 0px 0px 10px 3px $bacground-color;
+  }
+
+  &:focus {
+    border-style: none;
+  }
+
+  &:active {
+    border-style: none;
+    outline: none;
+  }
+}
+
+.css-11ka2ks-control {
+  border-color: #75b37d;
+  &:hover {
+    border-style: none;
+    box-shadow: 0px 0px 10px 3px $bacground-color;
+  }
+}
+
+.css-ig5d4d-menu {
+  box-shadow: 0px 0px 10px 3px $bacground-color !important;
+  background: '#fff' !important;
+}
+
+.css-1okebmr-indicatorSeparator {
+  width: 0px !important;
+}

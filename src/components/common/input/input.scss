@@ -1,2 +1,28 @@
+@import '../../../Const.scss';
+
 .input {
+  min-width: 240px;
+  min-height: 24px;
+  background-color: #fafafa;
+  border: 0;
+  border-radius: 2px;
+  transition: 0.3s box-shadow;
+  @include main-text;
+
+  &:hover {
+    box-shadow: 0px 0px 10px 3px #75b37d;
+  }
+  &:focus {
+    outline: none;
+    border-radius: 2px;
+    box-shadow: 0px 0px 10px 3px #75b37d;
+  }
+}
+
+.input-good {
+  box-shadow: 0 0 5px #75b37d;
+}
+
+.input-false {
+  box-shadow: 0 0 5px #f80000;
 }

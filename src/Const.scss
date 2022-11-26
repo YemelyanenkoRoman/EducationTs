@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe&display=swap');
 
 $bacground-color: #75b37d;
 $let-sp: 3px;
@@ -22,13 +22,13 @@ $z-index-abolete: 1800;
 }
 
 @mixin main-text() {
-  font-family: "Alumni Sans Pinstripe", sans-serif;
+  font-family: 'Alumni Sans Pinstripe', sans-serif;
   font-weight: 600;
   font-size: 24px;
 }
 
 @mixin little-text() {
-  font-family: "Alumni Sans Pinstripe", sans-serif;
+  font-family: 'Alumni Sans Pinstripe', sans-serif;
   font-weight: 400;
   font-size: 18px;
 }
@@ -37,4 +37,30 @@ $z-index-abolete: 1800;
   background-attachment: fixed;
   background-position: top -15px right 40px;
   background-size: 700px;
+}
+
+@mixin button-main {
+  @include main-text();
+  text-transform: uppercase;
+  display: inline-block;
+  color: black;
+  text-decoration: none;
+  user-select: none;
+  padding: 0.25em 0.5em;
+  outline: none;
+  border: 1px solid rgb(250, 172, 17);
+  border-radius: 7px;
+  background: rgb(255, 212, 3) linear-gradient(rgb(255, 212, 3), rgb(248, 157, 23));
+  box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0), inset 0 1px 2px rgba(0, 0, 0, 0), inset 0 0 0 60px rgba(255, 255, 0, 0);
+  transition: box-shadow 0.2s, border-color 0.2s;
+  &:hover {
+    box-shadow: inset 0 -1px 1px rgba(0, 0, 0, 0), inset 0 1px 2px rgba(0, 0, 0, 0),
+      inset 0 0 0 60px rgba(255, 255, 0, 0.5);
+  }
+  &:active {
+    padding: calc(0.25em + 1px) 0.5em calc(0.25em - 1px);
+    border-color: rgba(177, 159, 0, 1);
+    box-shadow: inset 0 -1px 1px rgba(0, 0, 0, 0.1), inset 0 1px 2px rgba(0, 0, 0, 0.3),
+      inset 0 0 0 60px rgba(255, 255, 0, 0.45);
+  }
 }
