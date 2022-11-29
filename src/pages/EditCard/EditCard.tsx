@@ -4,10 +4,10 @@ import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { FormValues } from '../../components/baseCategoryCreate/BaseCategoryCreate';
 import { CardData } from '../../types/types';
 import { useForm, useController, UseControllerProps, Controller, useFieldArray } from 'react-hook-form';
-import InputField from '../../components/form/inputField/InputField';
-import TextareaField from '../../components/form/textareaField/TextareaField';
+import { InputField, TextareaField } from '../../components/form';
 
 import '../manicure/Manicure.scss';
+import './EditCard.scss';
 
 const ManicureEdit: FC = () => {
   const params = useParams();
@@ -39,63 +39,69 @@ const ManicureEdit: FC = () => {
   });
 
   return (
-    <>
-      {manicureData ? <h2>Edit form</h2> : <h2>Error loading data. Plese restart page</h2>}
-      <form className={manicureData ? 'form' : 'form-false'}>
-        <InputField
-          control={control}
-          name="title"
-          rules={{
-            required: 'Поле обязательно',
-            minLength: {
-              message: 'Минимум два символа',
-              value: 2,
-            },
-          }}
-          label="Имя пользователя"
-        />
+    <div className="edit-card">
+      <div className="edit-card__container">
+        <div className="edit-card__background">
+          {manicureData ? <h2>Редактировать карточку</h2> : <h2>Error loading data. Plese restart page</h2>}
+          <form className={manicureData ? 'form' : 'form-false'}>
+            <InputField
+              control={control}
+              name="title"
+              rules={{
+                required: 'Поле обязательно',
+                minLength: {
+                  message: 'Минимум два символа',
+                  value: 2,
+                },
+              }}
+              label="Название карточки"
+            />
 
-        <TextareaField control={control} name="visibleText" label="Visible text" />
-        <TextareaField control={control} name="hiddenText" label="HiddenText" />
+            <TextareaField control={control} name="visibleText" label="Открытая часть текста" />
+            <TextareaField control={control} name="hiddenText" label="Скрытая часть текста" />
 
-        <div className="dynamic-inputs">
-          {fields.map((item, index) => {
-            return (
-              <div key={item.id}>
-                <InputField
-                  control={control}
-                  name={`urls.${index}.url`}
-                  rules={{
-                    required: 'Поле обязательно',
-                  }}
-                  label="Link Field"
-                />
-                <button
-                  onClick={() => {
-                    remove(index);
-                  }}
-                >
-                  remove Link Field
-                </button>
-              </div>
-            );
-          })}
+            <div className="dynamic-inputs">
+              {fields.map((item, index) => {
+                return (
+                  <div className="dynamic-inputs__container" key={item.id}>
+                    <InputField
+                      control={control}
+                      name={`urls.${index}.url`}
+                      rules={{
+                        required: 'Поле обязательно',
+                      }}
+                      label="Введите адрес изображения"
+                    />
+                    <button
+                      className="button-main"
+                      onClick={() => {
+                        remove(index);
+                      }}
+                    >
+                      Удалить поле
+                    </button>
+                  </div>
+                );
+              })}
+            </div>
+
+            <button
+              className="button-main"
+              onClick={(e) => {
+                e.preventDefault();
+                append({ url: '' });
+              }}
+            >
+              Добавить поле
+            </button>
+
+            <button className="button-main button-main_margin" type="submit" onClick={submit}>
+              Отправить форму
+            </button>
+          </form>
         </div>
-
-        <button
-          onClick={(e) => {
-            e.preventDefault();
-            append({ url: '' });
-          }}
-        >
-          add label URL
-        </button>
-
-        <button className="button" type="submit" onClick={submit}>
-          SUBMIT
-        </button>
-      </form>
-    </>
+      </div>
+    </div>
   );
 };
 

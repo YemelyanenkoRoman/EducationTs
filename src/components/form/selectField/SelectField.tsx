@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { Control, Controller } from 'react-hook-form';
-import ReactSelect from 'react-select';
-import { IOption, Select } from '../../common/Select/Select';
+import { IOption, Select } from '../../common';
+
 import './SelectField.scss';
 
 interface SelectProps {
@@ -11,7 +11,7 @@ interface SelectProps {
   placeholder?: string;
 }
 
-const SelectField: FC<SelectProps> = (props) => {
+export const SelectField: FC<SelectProps> = (props) => {
   return (
     <Controller
       control={props.control}
@@ -31,5 +31,3 @@ const SelectField: FC<SelectProps> = (props) => {
     />
   );
 };
-
-export default SelectField;

@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { Control, Controller } from 'react-hook-form';
-import { Datepicker } from '../../common/Datepicker/Datepicker';
+import { Datepicker } from '../../common';
 
 interface DatepickerFieldProps {
   inline: boolean | undefined;
@@ -9,7 +9,7 @@ interface DatepickerFieldProps {
   name: string;
 }
 
-const DatepickerField: FC<DatepickerFieldProps> = (props) => {
+export const DatepickerField: FC<DatepickerFieldProps> = (props) => {
   return (
     <Controller
       control={props.control}
@@ -22,4 +22,3 @@ const DatepickerField: FC<DatepickerFieldProps> = (props) => {
     />
   );
 };
-export default DatepickerField;

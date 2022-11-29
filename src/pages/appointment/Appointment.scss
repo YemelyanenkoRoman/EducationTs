@@ -1,7 +1,22 @@
 @import '../../Const.scss';
 
-.appointment-form {
+.appointment__wrapper {
+  max-width: 1200px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.appointment__form {
   @include flex-column-ai-center();
+
+  height: 100%;
+  background: url('../../../public/imgs/appointment-background.png') no-repeat;
+
+  &-title {
+    text-align: center;
+    margin: 20px;
+  }
 }
 
 .selects {

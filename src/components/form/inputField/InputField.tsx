@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { Control, Controller } from 'react-hook-form';
-import { Input } from '../../common/input/Input';
+import { Input } from '../../common';
 
 import './inputField.scss';
 
@@ -11,7 +11,7 @@ interface InputValue {
   label?: string;
 }
 
-const InputField: FC<InputValue> = (props) => {
+export const InputField: FC<InputValue> = (props) => {
   return (
     <Controller
       control={props.control}
@@ -31,4 +31,3 @@ const InputField: FC<InputValue> = (props) => {
     />
   );
 };
-export default InputField;

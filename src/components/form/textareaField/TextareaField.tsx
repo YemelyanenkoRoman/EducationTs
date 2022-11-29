@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { Control, Controller } from 'react-hook-form';
-import { Textarea } from '../../common/Textarea/Textarea';
+import { Textarea } from '../../common';
 
 interface TextareaFieldProps {
   control: Control<any>;
@@ -10,7 +10,7 @@ interface TextareaFieldProps {
   onBlur?: any;
 }
 
-const TextareaField: FC<TextareaFieldProps> = (props) => {
+export const TextareaField: FC<TextareaFieldProps> = (props) => {
   return (
     <Controller
       control={props.control}
@@ -30,4 +30,3 @@ const TextareaField: FC<TextareaFieldProps> = (props) => {
     />
   );
 };
-export default TextareaField;

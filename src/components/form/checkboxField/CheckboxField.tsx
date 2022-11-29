@@ -1,13 +1,13 @@
 import React, { FC } from 'react';
 import { Control, Controller } from 'react-hook-form';
-import { ReactCheckbox } from '../../common/ReactCheckbox/ReactCheckbox';
+import { ReactCheckbox } from '../../common';
 
 interface CheckboxFieldProps {
   control: Control<any>;
   name: string;
 }
 
-const CheckboxField: FC<CheckboxFieldProps> = (props) => {
+export const CheckboxField: FC<CheckboxFieldProps> = (props) => {
   return (
     <Controller
       control={props.control}
@@ -18,5 +18,3 @@ const CheckboxField: FC<CheckboxFieldProps> = (props) => {
     />
   );
 };
-
-export default CheckboxField;

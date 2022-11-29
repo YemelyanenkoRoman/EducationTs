@@ -1,0 +1,43 @@
+@import '../../Const.scss';
+
+h2 {
+  padding: 20px;
+}
+
+.edit-card {
+  @include main-text();
+  text-transform: uppercase;
+  .edit-card__container {
+    max-width: 1200px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    .edit-card__background {
+      @include flex-column-ai-center();
+      background: url('../../../public/imgs/appointment-background.png') no-repeat;
+    }
+  }
+}
+
+.dynamic-inputs {
+  .dynamic-inputs__container {
+    @include flex-column-ai-center();
+    padding-bottom: 20px;
+  }
+}
+
+.button-main {
+  @include button-main;
+  font-size: 18px;
+}
+
+.button-main_margin {
+  margin-top: 50px;
+  font-size: 24px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
